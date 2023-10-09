@@ -1,0 +1,68 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+<mein class="mein">
+	<section>
+		<form method="POST" action="/product-create">
+			<div class="form">
+
+				<h1 class="form__title">Інформація про товар</h1>
+
+				<div class="form__card">
+					<div class="form__grid">
+						<label for="name" class="form__title-mini">Назва товару</label>
+						<input type="name" name="name" class="form__input-1">
+					</div>
+
+					<div class="form__grid">
+						<label for="price" class="form__title-mini">Ціна</label>
+						<input type="price" name="price" class="form__input-1">
+					</div>
+				</div>
+
+
+				<div class="form__field">
+					<label for="description" class="form__title-mini">Короткий опис товару</label>
+					<input type="description" name="description" class="form__input-2">
+					<p class="form__text">Відображуєтсья у картці товару</p>
+				</div>
+
+				<button class="form__button">Створити товар</button>
+
+				<a href="/product-list" class="form__button-next">Перехід до списків товарів</a>
+
+			</div>
+		</form>
+
+
+	</section>
+
+	<section>
+		<section class="form">
+			{{#with data.products}}
+			{{#each list}}
+			<div class="form__card">
+				<h2 class="form__title">{{name}}</h2>
+				<p class="form__description">{{description}}</p>
+				<p class="form__id">ID: {{id}}</p>
+				<div class="form__bottom">
+					<p class="form__price">{{price}}</p>
+					<a class="form__botton">Редагувати</a>
+				</div>
+			</div>
+			{{/each}}
+			{{/with}}
+		</section>
+	</section>
+
+
+
+</mein>
+
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+	Адже наш layout/default.hbs має вже структуру HTML
+	}}

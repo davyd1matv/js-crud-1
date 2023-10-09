@@ -1,0 +1,99 @@
+@use '../../lib/service.scss' as s;
+
+.form {
+	display: flex;
+	flex-direction: column;
+	padding: s.space(4);
+	gap: s.space(8);
+
+	&__title {
+		font-size: 22px;
+		font-weight: bold;
+		// padding-bottom: s.space(1);
+		// margin-bottom: s.space(2); // Замість того збільшили в із 2 на 4 gap, що вище
+		// border-bottom: 1px solid s.color('light')
+	}
+
+	&__title-mini {
+		font-size: 18px;
+		font-weight: normal;
+		padding-bottom: s.space(1);
+		// border-bottom: 1px solid s.color('light')
+	}
+
+	&__card {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	&__grid {
+		// display: grid;
+		display: flex;
+		flex-direction: column;
+
+		// gap: s.space(1)
+	}
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__input-1 {
+		border: 1px solid s.color('light');
+
+		height: 40px;
+
+		margin-right: 10px;
+		border-radius: 5px;
+	}
+
+	&__input-2 {
+		border: 1px solid s.color('light');
+		height: 100px;
+
+		margin-right: 10px;
+		border-radius: 5px;
+	}
+
+	&__text {
+		font-size: 14px;
+		font-weight: normal;
+		padding-bottom: s.space(1);
+		padding-top: s.space(1);
+		color: grey;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: center;
+
+		// padding: 12px 60px;
+
+		background: blue;
+		border: 1px solid blue;
+		padding: s.space(2);
+		border-radius: 20px;
+
+		color: white;
+		font-size: 20px;
+		// font-weight: bold
+		font-weight: regular;
+	}
+
+	&__button-next {
+		text-align: center;
+		border: 1px solid transparent;
+		text-decoration: none;
+		padding: s.space(3);
+
+		// padding: s.space(2);
+		background-color: red;
+		border-radius: s.space(5);
+
+		// height: 50px;
+
+		color: white;
+		font-size: 20px;
+	}
+}

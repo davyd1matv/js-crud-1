@@ -59,6 +59,40 @@ class User {
   }
 }
 
+class Product {
+  static #list = []
+
+  constructor(name, price, description) {
+    this.name = name
+    this.price = price
+    this.description = description
+    this.id = new Date().getTime()
+  }
+
+  static add = (product) => {
+    this.#list.push(product)
+  }
+
+  static getList = () => {
+    return this.#list
+  }
+
+  static getById = (id) =>
+    this.#list.find((product) => product.id === id)
+
+  static deleteById = (id) => {
+    const index = this.#list.findIndex(
+      (product) => product.id === id,
+    )
+    if (index !== -1) {
+      this.#list.splice(index, 1)
+      return true
+    } else {
+      return false
+    }
+  }
+}
+
 //==============
 
 // router.get Створює нам один ентпоїнт
@@ -125,6 +159,70 @@ router.post('/user-update', function (req, res) {
   res.render('success-info', {
     style: 'success-info',
     info: result ? 'Email address has update' : 'Error',
+  })
+})
+
+router.get('/product', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  const list = Product.getList()
+
+  res.render('product', {
+    style: 'product',
+
+    data: {
+      products: {
+        list,
+        isEmpty: list.length === 0,
+      },
+    },
+  })
+})
+
+router.post('/product-create', function (req, res) {
+  const { name, price, description } = req.body
+
+  const product = new Product(name, price, description)
+
+  Product.add(product)
+
+  console.log(Product.getList())
+
+  res.render('alert', {
+    style: 'alert',
+    info: 'Продукт доданий',
+  })
+})
+
+router.get('/product-list', function (req, res) {
+  //   const product = new Product(name, price, description)
+
+  const list = Product.getList()
+
+  res.render('product-list', {
+    style: 'product-list',
+    data: {
+      products: {
+        list,
+        isEmpty: list.length === 0,
+      },
+    },
+  })
+})
+
+router.get('/product-edit', function (req, res) {
+  //   const product = new Product(name, price, description)
+
+  const list = Product.getList()
+
+  res.render('product-edit', {
+    style: 'product-edit',
+    data: {
+      products: {
+        list,
+        isEmpty: list.length === 0,
+      },
+    },
   })
 })
 

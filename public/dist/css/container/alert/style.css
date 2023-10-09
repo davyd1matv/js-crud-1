@@ -1,0 +1,36 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 16px;
+  gap: 32px;
+}
+.form__card {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+.form__title-mini {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 12px;
+}
+.form__text {
+  font-size: 16px;
+  font-weight: normal;
+  padding-bottom: 4px;
+}
+.form__button {
+  text-align: center;
+  border: 1px solid transparent;
+  text-decoration: none;
+  padding: 16px;
+  border-radius: 12px;
+  margin-left: 200px;
+  margin-right: 100px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/*# sourceMappingURL=style.css.map */
