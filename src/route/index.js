@@ -66,15 +66,18 @@ class Product {
     this.name = name
     this.price = price
     this.description = description
-    this.id = new Date().getTime()
+    this.id = Math.floor(Math.random() * 100000)
+    this.createDate = () => {
+      this.date = new Date().toISOString()
+    }
   }
+
+  static getList = () => this.#list
+
+  checkId = (id) => this.id === id
 
   static add = (product) => {
     this.#list.push(product)
-  }
-
-  static getList = () => {
-    return this.#list
   }
 
   static getById = (id) =>
@@ -89,6 +92,27 @@ class Product {
       return true
     } else {
       return false
+    }
+  }
+
+  static updateById = (id, data) => {
+    const product = this.getById(id)
+    const { name } = data
+
+    if (product) {
+      if (name) {
+        product.name = name
+      }
+
+      return true
+    } else {
+      return false
+    }
+  }
+
+  static update = (name, { product }) => {
+    if (name) {
+      product.name = name
     }
   }
 }
@@ -162,20 +186,21 @@ router.post('/user-update', function (req, res) {
   })
 })
 
-router.get('/product', function (req, res) {
+router.get('/product-create', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   const list = Product.getList()
 
-  res.render('product', {
-    style: 'product',
-
+  res.render('product-create', {
+    style: 'product-create',
+    // це потім прибрати
     data: {
       products: {
         list,
         isEmpty: list.length === 0,
       },
     },
+    //
   })
 })
 
@@ -221,7 +246,7 @@ router.get('/product-edit', function (req, res) {
       style: 'product-edit',
       data: {
         name: product.name,
-        price: product.id,
+        price: product.price,
         id: product.id,
         description: product.description,
       },
@@ -249,7 +274,7 @@ router.post('/product-edit', function (req, res) {
   if (product) {
     res.render('product-alert', {
       style: 'product-alert',
-      info: 'Шнформація про товар оновлена',
+      info: 'Інформація про товар оновлена',
     })
   } else {
     res.render('product-alert', {
@@ -257,6 +282,18 @@ router.post('/product-edit', function (req, res) {
       info: 'Сталася помилка',
     })
   }
+})
+
+router.post('/product-delete', function (req, res) {
+  //   const product = new Product(name, price, description)
+  const { id } = req.query
+
+  Product.deleteById(Number(id))
+
+  res.render('product-alert', {
+    style: 'product-alert',
+    info: 'Товар видалений',
+  })
 })
 
 // ================================================================
