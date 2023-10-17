@@ -188,8 +188,8 @@ router.post('/product-create', function (req, res) {
 
   console.log(Product.getList())
 
-  res.render('alert', {
-    style: 'alert',
+  res.render('product-alert', {
+    style: 'product-alert',
     info: 'Продукт доданий',
   })
 })
@@ -212,18 +212,51 @@ router.get('/product-list', function (req, res) {
 
 router.get('/product-edit', function (req, res) {
   //   const product = new Product(name, price, description)
+  const { id } = req.query
 
-  const list = Product.getList()
+  const product = Product.getById(Number(id))
 
-  res.render('product-edit', {
-    style: 'product-edit',
-    data: {
-      products: {
-        list,
-        isEmpty: list.length === 0,
+  if (product) {
+    return res.render('product-edit', {
+      style: 'product-edit',
+      data: {
+        name: product.name,
+        price: product.id,
+        id: product.id,
+        description: product.description,
       },
-    },
+    })
+  } else {
+    return res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Продукту за таким ID не знайдено',
+    })
+  }
+})
+
+router.post('/product-edit', function (req, res) {
+  //   const product = new Product(name, price, description)
+  const { id, name, price, description } = req.body
+  const product = Product.updateById(Number(id), {
+    name,
+    price,
+    description,
   })
+
+  console.log(id)
+  console.log(product)
+
+  if (product) {
+    res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Шнформація про товар оновлена',
+    })
+  } else {
+    res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Сталася помилка',
+    })
+  }
 })
 
 // ================================================================
