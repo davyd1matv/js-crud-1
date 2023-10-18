@@ -100,9 +100,11 @@ class Product {
     const { name } = data
 
     if (product) {
-      if (name) {
-        product.name = name
-      }
+      //   if (name) {
+      //     product.name = name
+      //   }
+
+      this.update(product, data)
 
       return true
     } else {

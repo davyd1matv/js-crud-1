@@ -12,7 +12,9 @@
 			<p class="form__id">ID: {{id}}</p>
 			<div class="form__bottom">
 				<p class="form__price">{{price}}$</p>
-				<a href="product-edit" class="form__button">Редагувати</a>
+				<button class="form__button">
+					<a href="product-edit?id={{id}}">Редагувати</a>
+				</button>
 			</div>
 		</div>
 		{{/each}}

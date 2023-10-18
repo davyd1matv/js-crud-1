@@ -4,40 +4,43 @@
 }}
 <mein class="mein">
 	<section class="form">
-		{{#with data.products}}
-		{{#each list}}
+		{{#with data}}
+		{{!-- {{#each list}} --}}
+		<form method="POST" action="/product-edit">
 
-		<h1 class="form__title-name">Інформація про товар</h1>
+			<h1 class="form__title-name">Інформація про товар</h1>
 
-		<div class="form__card">
-			<div class="form__element">
-				<label for="name" class="form__label">Назва товару</label>
-				<input type="name" name="name" class="form__input" placeholder="{{name}}">
+			<div class="form__card">
+				<div class="form__element">
+					<label for="name" class="form__label">Назва товару</label>
+					<input type="name" name="name" class="form__input" placeholder="{{name}}">
+				</div>
+
+				<div class="form__element">
+					<label for="price" class="form__label">Ціна</label>
+					<input type="price" name="price" class="form__input" placeholder="{{price}}$">
+				</div>
+
+				<div class="form__element">
+					<label for="id" class="form__label">ID</label>
+					<input type="id" name="id" class="form__input" placeholder="{{id}}">
+				</div>
 			</div>
 
-			<div class="form__element">
-				<label for="price" class="form__label">Ціна</label>
-				<input type="price" name="price" class="form__input" placeholder={{price}}$>
+			<div class="form__info">
+				<label for="description" class="form__description-top">Короткий опис товару</label>
+				<input type="description" name="description" class="form__description" placeholder="{{description}}">
+				<p class="form__description-bottom">Короткий опис товару</p>
 			</div>
 
-			<div class="form__element">
-				<label for="id" class="form__label">ID</label>
-				<input type="id" name="id" class="form__input" placeholder="{{id}}">
+			<div class="form__bottom">
+				<a href="product-list" class="form__button-left">Зберегти оновлення</a>
+				<a href="product-list" class="form__button-right">Видалити товар</a>
 			</div>
-		</div>
 
-		<div class="form__info">
-			<label for="description" class="form__description-top">Короткий опис товару</label>
-			<input type="description" name="description" class="form__description" placeholder="{{description}}">
-			<p class="form__description-bottom">Короткий опис товару</p>
-		</div>
 
-		<div class="form__bottom">
-			<a href="product-list" class="form__button-left">Зберегти оновлення</a>
-			<a href="product-list" class="form__button-right">Видалити товар</a>
-		</div>
-
-		{{/each}}
+		</form>
+		{{!-- {{/each}} --}}
 		{{/with}}
 	</section>
 </mein>
