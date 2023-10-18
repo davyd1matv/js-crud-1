@@ -4,7 +4,10 @@
 }}
 <mein class="mein">
 	<div class="form">
-		{{#with data.products}}
+
+		{{> product-card}}
+
+		{{!-- {{#with data.products}}
 		{{#each list}}
 		<div class="form__card">
 			<h2 class="form__title">{{name}}</h2>
@@ -18,8 +21,13 @@
 			</div>
 		</div>
 		{{/each}}
-		{{/with}}
+		{{/with}} --}}
 	</div>
+
+	<div class="formbutton">
+		<a href="/product-create" class="formbutton__button">Повернутися назад</a>
+	</div>
+
 	{{!-- {{> product-card.index}} --}}
 </mein>
 

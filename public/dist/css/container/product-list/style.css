@@ -44,4 +44,21 @@
   font-weight: normal;
 }
 
+.formbutton {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+}
+.formbutton__button {
+  text-align: center;
+  border: 1px solid transparent;
+  text-decoration: none;
+  padding: 12px;
+  background-color: red;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */
