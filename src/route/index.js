@@ -100,11 +100,11 @@ class Product {
     const { name } = data
 
     if (product) {
-      //   if (name) {
-      //     product.name = name
-      //   }
+      if (name) {
+        product.name = name
+      }
 
-      this.update(product, data)
+      //   this.update(product, data)
 
       return true
     } else {
@@ -286,7 +286,7 @@ router.post('/product-edit', function (req, res) {
   }
 })
 
-router.post('/product-delete', function (req, res) {
+router.get('/product-delete', function (req, res) {
   //   const product = new Product(name, price, description)
   const { id } = req.query
 
