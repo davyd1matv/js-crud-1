@@ -1,0 +1,64 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 50px;
+}
+.form__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.form__title {
+  padding: 8px;
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom: 8px;
+}
+.form__description {
+  padding: 8px;
+  font-size: 16px;
+  font-weight: normal;
+}
+.form__id {
+  padding: 8px;
+  font-size: 16px;
+  font-weight: normal;
+  color: grey;
+}
+.form__bottom {
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.form__price {
+  font-size: 18px;
+  position: left;
+  font-weight: bold;
+}
+.form__button {
+  right: -50px;
+  color: blue;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.formbutton {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+}
+.formbutton__button {
+  text-align: center;
+  border: 1px solid transparent;
+  text-decoration: none;
+  padding: 12px;
+  background-color: red;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

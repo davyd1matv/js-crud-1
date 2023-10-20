@@ -1,0 +1,123 @@
+@use '../../lib/service.scss' as s;
+
+// .mein {
+// 	display:dlex
+// 	padding-top: 30px;
+// 	padding-left: 20px;
+// 	padding-right: 20px;
+
+// }
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(3);
+
+	border: 1px solid s.color('light');
+	border-radius: 5px;
+
+	padding-top: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	margin: s.space(2);
+
+	&__title-name {
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	&__card {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	&__element {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__label {
+		padding: s.space(1);
+		font-size: 16px;
+
+		padding-bottom: s.space(1);
+	}
+
+	&__input {
+		color: black;
+		font-size: 16px;
+		font-weight: normal;
+
+		border: 1px solid s.color('light');
+		border-radius: 3px;
+
+		margin-right: s.space(2);
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+
+		padding-bottom: s.space(1);
+	}
+
+	&__description-top {
+		font-size: 20px;
+		color: black;
+	}
+
+	&__description {
+		height: 100px;
+
+		color: black;
+		font-size: 16px;
+		font-weight: normal;
+
+		border: 1px solid s.color('light');
+		border-radius: 3px;
+
+		padding: s.space(2);
+	}
+
+	&__description-bottom {
+		font-size: 16px;
+		color: grey
+	}
+
+	&__bottom {
+		padding: s.space(2);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		gap: s.space(3);
+	}
+
+	&__button-left {
+		text-align: center;
+		border: 1px solid transparent;
+		text-decoration: none;
+		padding: s.space(3);
+		border-radius: s.space(3);
+
+		background-color: blue;
+
+		color: white;
+		font-size: 16px;
+		font-weight: normal;
+	}
+
+	&__button-right {
+		text-align: center;
+		border: 1px solid transparent;
+		text-decoration: none;
+		padding: s.space(3);
+		border-radius: s.space(3);
+
+		background-color: red;
+
+		color: white;
+		font-size: 16px;
+		font-weight: normal;
+	}
+}
