@@ -1,0 +1,47 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/purchase-product/style.scss' as purchaseProduct;
+@use '../../component/button/style.scss' as button;
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(10);
+	padding: s.space(10);
+}
+
+.box {
+	display: flex;
+	flex-direction: column;
+
+	// display: grid;
+	// grid-template-columns: 1fr 1fr 1fr 1fr;
+
+	gap: s.space(3)
+}
+
+.box-info {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+	&__block {
+		// color: grey;
+		padding-top: s.space(3)
+	}
+}
+
+.title {
+	color: gray;
+	size: s.space(4)
+}
+
+.text {
+	size: s.space(4);
+	font-weight: bold;
+}
+
+.box-line {
+	border: 1px solid grey
+}
