@@ -4,7 +4,7 @@
 }}
 <main class="main">
 
-	<form method="POST" action="/purchase-submit?id={{id}}" class="form-card">
+	{{!-- <form method="POST" action="/purchase-submit?id={{id}}" class="form-card"> --}}
 
 		{{> heading title="Мої замовлення" info="Комп'ютерни та ноотбуки/Комп'ютери, неттопи, моноблоки"}}
 
@@ -41,14 +41,14 @@
 			<a href='/purchase-info?id={{id}}'>
 				<div class='box-info'>
 					<div class='box-info__block'>
-						<span class='title'>ID: {{id}}</span>
+						<span class='title box-info__id'>ID: {{id}}</span>
 					</div>
 
 					{{!-- <div class="box-line"></div> --}}
 
 					<div class='box-info__block'>
 						<span class='title'>Товари</span>
-						<span class='text'>{{product}}</span>
+						<span class='text'>{{product.title}}</span>
 					</div>
 
 					{{!-- <div class="box-line"></div> --}}
@@ -65,12 +65,15 @@
 						<span class='text'>{{bonus}} грн</span>
 					</div>
 				</div>
+
+				<div class="box-line"></div>
 			</a>
 			{{/each}}
 			{{/with}}
 		</div>
 
-	</form>
+		{{!--
+	</form> --}}
 
 </main>
 {{!

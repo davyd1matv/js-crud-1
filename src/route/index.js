@@ -517,6 +517,85 @@ router.get('/purchase-list', function (req, res) {
   // ↑↑ сюди вводимо JSON дані
 })
 
+router.get('/purchase-info', function (req, res) {
+  const list = Purchase.getList()
+  console.log('purchase-info:', list)
+
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('purchase-info', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'purchase-info',
+    component: ['heading', 'purchase-item', 'divider'],
+    title: 'Інформація про замовлення',
+
+    data: {
+      purchases: {
+        list,
+      },
+      //   purchases2: {
+      //     list2,
+      //   },
+      // bonus, // Отримати bonusAmount з параметрів URL
+    },
+  })
+  // ↑↑ сюди вводимо JSON дані
+})
+
+router.get('/purchase-red', function (req, res) {
+  const { id } = req.query
+  const list = Purchase.getById(Number(id))
+
+  console.log('purchase-red:', list)
+
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('purchase-red', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'purchase-red',
+    component: ['heading', 'purchase-item', 'divider'],
+    title: 'Зміна даних',
+
+    data: {
+      firstname: list.firstname,
+      lastname: list.lastname,
+      id: list.id,
+      email: list.email,
+      phone: list.phone,
+
+      purchases: {
+        list,
+      },
+    },
+  })
+  // ↑↑ сюди вводимо JSON дані
+})
+
+router.post('/purchase-red', function (req, res) {
+  // ↑↑ сюди вводимо JSON дані
+
+  const { id, firstname, lastname, email, phone } = req.body
+  const list = Purchase.updateById(Number(id), {
+    firstname,
+    lastname,
+    email,
+    phone,
+  })
+
+  console.log(id)
+  console.log(list)
+
+  if (list) {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Інформація про товар оновлена',
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Сталася помилка',
+    })
+  }
+})
+
 // ================================================================
 
 // Підключаємо роутер до бек-енду

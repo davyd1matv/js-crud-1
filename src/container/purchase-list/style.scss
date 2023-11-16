@@ -28,7 +28,16 @@
 
 	&__block {
 		// color: grey;
-		padding-top: s.space(3)
+		padding-top: s.space(3);
+
+		display: flex;
+		flex-direction: column;
+
+		gap: s.space(3)
+	}
+
+	&__id {
+		padding-top: s.space(5)
 	}
 }
 
@@ -38,10 +47,12 @@
 }
 
 .text {
+	color: dark;
 	size: s.space(4);
 	font-weight: bold;
 }
 
 .box-line {
-	border: 1px solid grey
+	border-bottom: 1px solid grey;
+	padding-top: s.space(3)
 }
