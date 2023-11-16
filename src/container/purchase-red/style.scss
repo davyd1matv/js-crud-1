@@ -37,6 +37,12 @@
 .box-text {
 	color: black;
 	size: s.space(5);
+
+	&__red {
+		border: 1px solid s.color('light');
+		padding: s.space(2);
+		border-radius: 10px;
+	}
 }
 
 .box-client-price {

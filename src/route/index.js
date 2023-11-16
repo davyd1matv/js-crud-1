@@ -518,80 +518,144 @@ router.get('/purchase-list', function (req, res) {
 })
 
 router.get('/purchase-info', function (req, res) {
-  const list = Purchase.getList()
-  console.log('purchase-info:', list)
+  const id = Number(req.query.id)
+  const purchase = Purchase.getById(id)
+
+  console.log('purchase-info:', purchase)
 
   // ↙️ cюди вводимо назву файлу з сontainer
   res.render('purchase-info', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'purchase-info',
-    component: ['heading', 'purchase-item', 'divider'],
+
     title: 'Інформація про замовлення',
 
     data: {
-      purchases: {
-        list,
-      },
-      //   purchases2: {
-      //     list2,
-      //   },
-      // bonus, // Отримати bonusAmount з параметрів URL
+      id: purchase.id,
+      firstname: purchase.firstname,
+      lastname: purchase.lastname,
+      phone: purchase.phone,
+      email: purchase.email,
+      product: purchase.product.title,
+      productPrice: purchase.productPrice,
+      deliveryPrice: purchase.deliveryPrice,
+      totalPrice: purchase.totalPrice,
     },
   })
   // ↑↑ сюди вводимо JSON дані
 })
 
 router.get('/purchase-red', function (req, res) {
-  const { id } = req.query
-  const list = Purchase.getById(Number(id))
+  const id = Number(req.query.id)
+  const purchase = Purchase.getById(id)
 
-  console.log('purchase-red:', list)
+  console.log('purchase-red:', purchase)
 
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('purchase-red', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'purchase-red',
-    component: ['heading', 'purchase-item', 'divider'],
-    title: 'Зміна даних',
+  if (!purchase) {
+    res.render('alert', {
+      style: 'alert',
 
-    data: {
-      firstname: list.firstname,
-      lastname: list.lastname,
-      id: list.id,
-      email: list.email,
-      phone: list.phone,
+      isError: true,
+      tiitle: 'Помилка',
+      info: 'Замовлення з таким ID не найдено',
+    })
+  } else {
+    // ↙️ cюди вводимо назву файлу з сontainer
+    res.render('purchase-red', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'purchase-red',
 
-      purchases: {
-        list,
+      title: 'Зміна даних',
+
+      data: {
+        firstname: purchase.firstname,
+        lastname: purchase.lastname,
+        id: purchase.id,
+        email: purchase.email,
+        phone: purchase.phone,
+        delivery: purchase.delivery,
       },
-    },
-  })
+    })
+  }
   // ↑↑ сюди вводимо JSON дані
 })
 
 router.post('/purchase-red', function (req, res) {
   // ↑↑ сюди вводимо JSON дані
 
-  const { id, firstname, lastname, email, phone } = req.body
-  const list = Purchase.updateById(Number(id), {
-    firstname,
-    lastname,
-    email,
-    phone,
-  })
+  //   const { id, firstname, lastname, email, phone } = req.body
+  //   const list = Purchase.updateById(Number(id), {
+  //     firstname,
+  //     lastname,
+  //     email,
+  //     phone,
+  //   })
 
-  console.log(id)
-  console.log(list)
+  //   console.log(id)
+  //   console.log(list)
 
-  if (list) {
-    res.render('alert', {
-      style: 'alert',
-      info: 'Інформація про товар оновлена',
+  //   if (list) {
+  //     res.render('alert', {
+  //       style: 'alert',
+  //       info: 'Інформація про товар оновлена',
+  //     })
+  //   } else {
+  //     res.render('alert', {
+  //       style: 'alert',
+  //       info: 'Сталася помилка',
+  //     })
+  //   }
+
+  const id = Number(req.query.id)
+  let { firstname, lastname, phone, email, delivery } =
+    req.body
+
+  const purchase = Purchase.getById(id)
+
+  console.log(purchase)
+
+  if (purchase) {
+    const newPurchase = Purchase.updateById(id, {
+      firstname,
+      lastname,
+      phone,
+      email,
+      delivery,
     })
+
+    console.log(newPurchase)
+
+    if (newPurchase) {
+      res.render('alert', {
+        style: 'alert',
+
+        data: {
+          link: '/purchase-list',
+          title: 'Успішне виконання дії',
+          info: 'Товар успішно оновлено',
+        },
+      })
+    } else {
+      res.render('alert', {
+        style: 'alert',
+        component: ['button', 'heading'],
+
+        data: {
+          link: '/purchase-list',
+          title: 'Помилка',
+          info: 'Не вдалося оновити товар',
+        },
+      })
+    }
   } else {
     res.render('alert', {
       style: 'alert',
-      info: 'Сталася помилка',
+
+      data: {
+        link: '/purchase-list',
+        title: 'Помилка',
+        info: 'Не вдалося оновити товар',
+      },
     })
   }
 })

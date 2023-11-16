@@ -6,8 +6,8 @@
 	{{!-- <form method="POST" action="/purchase-red?id={{id}}" class="form-card"> --}}
 		{{>heading title="Інформація про замовлення"}}
 
-		{{#with data.purchases}}
-		{{#each list}}
+		{{#with data}}
+		{{!-- {{#each list}} --}}
 
 		<div class="box-id">
 			<div class="box-title">ID:</div>
@@ -77,10 +77,10 @@
 		</div>
 
 		<div class="button">
-			<a href="purchase-red?id={{id}}" class="form__button">Зберегти зміни</a>
+			<a href="purchase-red?id={{id}}" class="form__button">{{>button text="Зберегти зміни"}}</a>
 		</div>
 
-		{{/each}}
+		{{!-- {{/each}} --}}
 		{{/with}}
 
 		{{>divider}}

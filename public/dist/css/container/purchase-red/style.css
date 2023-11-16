@@ -144,6 +144,11 @@
   color: black;
   size: 20px;
 }
+.box-text__red {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 10px;
+}
 
 .box-client-price {
   display: grid;
