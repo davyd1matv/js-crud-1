@@ -1,0 +1,59 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss' as heading;
+@use '../../component/purchase-product/style.scss' as purchaseProduct;
+@use '../../component/field/style.scss' as field;
+@use '../../component/button/style.scss' as button;
+@use '../../component/divider/style.scss' as divider;
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(10);
+	padding: s.space(10);
+}
+
+.form-card {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: s.space(5);
+	padding: s.space(5);
+	border: 1px solid s.color(border);
+	border-radius: 10px;
+}
+
+.box-id {
+	display: flex;
+	flex-direction: column;
+	gap: s.space(2);
+}
+
+.box-title {
+	color: grey;
+	size: s.space(10);
+}
+
+.box-text {
+	color: black;
+	size: s.space(5);
+
+	&__red {
+		border: 1px solid s.color('light');
+		padding: s.space(2);
+		border-radius: 10px;
+	}
+}
+
+.box-client-price {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+	gap: s.space(3);
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		gap: s.space(1);
+	}
+}

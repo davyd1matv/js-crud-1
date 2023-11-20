@@ -1,0 +1,54 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+<main class="main">
+	<form method="POST" action="/purchase-red?id={{data.id}}" class="form-card">
+		{{#with data}}
+
+		{{>heading title="Зміна даних"}}
+
+		{{!-- {{#each list}} --}}
+
+		<div class="box-id">
+			<div class="box-title">ID:</div>
+			<div class="box-text">{{id}}</div>
+		</div>
+
+		<div class="box-client-price">
+
+			<div class="box-client-price__box">
+				<label for="firstname" class="box-title">Ім'я:</label>
+				<input type="firstname" name="firstname" class="box-text__red" value="{{firstname}}">
+			</div>
+
+			<div class="box-client-price__box">
+				<label for="lastname" class="box-title">Прізвище:</label>
+				<input type="flastname" name="lastname" class="box-text__red" value="{{lastname}}">
+			</div>
+
+			<div class="box-client-price__box">
+				<label for="email" class="box-title">Електронна пошта:</label>
+				<input type="email" name="email" class="box-text__red" value="{{email}}">
+			</div>
+
+			<div class="box-client-price__box">
+				<label for="phone" class="box-title">Телефон:</label>
+				<input type="phone" name="phone" class="box-text__red" value="{{phone}}">
+			</div>
+		</div>
+
+		{{!-- {{/each}} --}}
+		{{/with}}
+
+		{{>button text="Змінити дані"}}
+
+	</form>
+
+</main>
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+	Адже наш layout/default.hbs має вже структуру HTML
+	}}

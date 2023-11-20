@@ -1,0 +1,103 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+<main class="main">
+	{{!-- <form method="POST" action="/purchase-red?id={{id}}" class="form-card"> --}}
+		{{>heading title="Інформація про замовлення"}}
+
+		{{#with data}}
+		{{!-- {{#each list}} --}}
+
+		<div class="box-id">
+			<div class="box-title">ID:</div>
+			<div class="box-text">{{id}}</div>
+		</div>
+
+		{{>divider}}
+
+		<div class="box-client-price">
+			<div class="box-client-price__box">
+				<div class="box-title">Ім'я:</div>
+				<div class="box-text">{{firstname}}</div>
+			</div>
+
+			<div class="box-client-price__box">
+				<div class="box-title">Прізвище:</div>
+				<div class="box-text">{{lastname}}</div>
+			</div>
+
+			<div class="box-client-price__box">
+				<div class="box-title">Телефон:</div>
+				<div class="box-text">{{phone}}</div>
+			</div>
+
+			<div class="box-client-price__box">
+				<div class="box-title">Електронна пошта:</div>
+				<div class="box-text">{{email}}</div>
+			</div>
+		</div>
+
+		{{>divider}}
+
+		<div class="box-tov">
+			<div class="box-tov__box">
+				<div class="box-title">Назва товару:</div>
+				<div class="box-text">{{product.title}}</div>
+			</div>
+
+			<div class="box-tov__box">
+				<div class="box-title">Коментар:</div>
+				<div class="box-text">{{comment}}</div>
+			</div>
+		</div>
+
+		{{>divider}}
+
+		<div class="box-client-price">
+			<div class="box-client-price__box">
+				<div class="box-title">Вартість товарів:</div>
+				<div class="box-text">{{product.price}} ₴</div>
+			</div>
+
+			<div class="box-client-price__box">
+				<div class="box-title">Вартість доставки:</div>
+				<div class="box-text">150 ₴</div>
+			</div>
+
+			<div class="box-client-price__box">
+				<div class="box-title">Сума до сплати:</div>
+				<div class="box-text">{{totalPrice}} ₴</div>
+			</div>
+
+			<div class="box-client-price__box">
+				<div class="box-title">Нараховані бонуси</div>
+				<div class="box-text">{{bonus}} ₴</div>
+			</div>
+		</div>
+
+		<div class="button">
+			<a href="purchase-red?id={{id}}" class="form__button">{{>button text="Зберегти зміни"}}</a>
+		</div>
+
+		{{!-- {{/each}} --}}
+		{{/with}}
+
+		{{>divider}}
+
+		{{!-- {{>button text="Змінити дані"}} --}}
+
+		{{!-- <div class="button">
+			<a href="purchase-red?id={{id}}" class="form__button">Зберегти зміни</a>
+		</div> --}}
+
+		{{!--
+	</form> --}}
+
+</main>
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+	Адже наш layout/default.hbs має вже структуру HTML
+	}}

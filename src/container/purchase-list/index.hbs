@@ -1,0 +1,84 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+<main class="main">
+
+	{{!-- <form method="POST" action="/purchase-submit?id={{id}}" class="form-card"> --}}
+
+		{{> heading title="Мої замовлення" info="Комп'ютерни та ноотбуки/Комп'ютери, неттопи, моноблоки"}}
+
+		<div class="box">
+			{{!-- {{#with data}}
+			<div class="box__info">
+				<div class="box__one">ID {{id}}</div>
+
+				<div class="box__line"></div>
+
+				<div class="box__two">
+					<div class="box__title">Товари</div>
+					<div class="box__info">{{title}}</div>
+				</div>
+
+				<div class="box__line"></div>
+
+				<div class="box__two">
+					<div class="box__title">Сума змовлення</div>
+					<div class="box__info">{{price}}</div>
+				</div>
+
+				<div class="box__line"></div>
+
+				<div class="box__two">
+					<div class="box__title">Нараховані бонуси</div>
+					<div class="box__info">{{bonus}}</div>
+				</div>
+			</div>
+			{{/with}} --}}
+
+			{{#with data.purchases}}
+			{{#each list}}
+			<a href='/purchase-info?id={{id}}'>
+				<div class='box-info'>
+					<div class='box-info__block'>
+						<span class='title box-info__id'>ID: {{id}}</span>
+					</div>
+
+					{{!-- <div class="box-line"></div> --}}
+
+					<div class='box-info__block'>
+						<span class='title'>Товари</span>
+						<span class='text'>{{product.title}}</span>
+					</div>
+
+					{{!-- <div class="box-line"></div> --}}
+
+					<div class='box-info__block'>
+						<span class='title'>Сума замовлення</span>
+						<span class='text'>{{totalPrice}} грн</span>
+					</div>
+
+					{{!-- <div class="box-line"></div> --}}
+
+					<div class='box-info__block'>
+						<span class='title'>Нараховані бонуси</span>
+						<span class='text'>{{bonus}} грн</span>
+					</div>
+				</div>
+
+				<div class="box-line"></div>
+			</a>
+			{{/each}}
+			{{/with}}
+		</div>
+
+		{{!--
+	</form> --}}
+
+</main>
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+	Адже наш layout/default.hbs має вже структуру HTML
+	}}
