@@ -27,6 +27,10 @@ class Track {
   static getList() {
     return this.#list.reverse()
   }
+
+  static addById(id) {
+    return Track.#list.push((track) => track.id === id)
+  }
 }
 
 Track.create(
@@ -97,7 +101,7 @@ class Playlist {
   static getById(id) {
     return (
       Playlist.#list.find(
-        (playlist) => playlist.od === id,
+        (playlist) => playlist.id === id,
       ) || null
     )
   }
@@ -210,7 +214,7 @@ router.get('/spotify-playlist', function (req, res) {
       data: {
         message: 'Помилка',
         info: 'Такого плейліста не знадено',
-        link: '/',
+        link: '/spotify-playlist',
       },
     })
   }
@@ -314,6 +318,38 @@ router.get('/spotify-playlist-add', function (req, res) {
       playlistId: playlist.id,
       tracks: Track.getList(),
       //   name: playlist.name,
+    },
+  })
+})
+
+router.get('/spotify-track-add', function (req, res) {
+  // res.render генерує нам HTML сторінку
+  const playlistId = Number(req.query.playlistId)
+  const trackId = Number(req.query.trackId)
+
+  const playlist = Playlist.getById(playlistId)
+
+  //   if (!playlist) {
+  //     return res.render('alert', {
+  //       style: 'alert',
+
+  //       data: {
+  //         message: 'Помилка',
+  //         info: 'Такого плейліста не знадено',
+  //         link: `/spotify-playlist?id=${playlistId}`,
+  //       },
+  //     })
+  //   }
+
+  //   playlist.deleteTrackById(trackId)
+
+  res.render('spotify-playlist', {
+    style: 'spotify-playlist',
+
+    data: {
+      playlistId: playlist.id,
+      tracks: playlist.tracks,
+      name: playlist.name,
     },
   })
 })
