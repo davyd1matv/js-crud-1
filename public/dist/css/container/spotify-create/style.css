@@ -42,6 +42,11 @@
   display: grid;
   gap: 28px;
 }
+.track__list-big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
 .track__content {
   display: flex;
   flex-direction: column;

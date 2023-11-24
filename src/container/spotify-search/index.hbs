@@ -8,18 +8,19 @@
 		<h1 class="title title--center">Пошук плейлистів</h1>
 
 		<form method="POST" action="/spotify-search" class="search">
-			<img src="svg/spotify-search.svg">
+			<img src="svg/search_button.svg">
 			<input type="search" class="search__input" placeholder="Введіть запит" name="value" value="{{value}}">
 			<button class="search__button">Search</button>
 		</form>
 
 		<ul class="playlist__list">
-			{{#each tracks}}
+			{{#each list}}
 			<li class="playlist">
 				<img src="{{image}}" alt="{{name}}" height="100px">
+
 				<div class="playlist__content">
 					<strong class="playlist__name">{{name}}</strong>
-					<em class="playlist__author">Кількість пісень: {{author}}</em>
+					<em class="playlist__author">Кількість пісень: {{amount}}</em>
 				</div>
 			</li>
 			{{/each}}

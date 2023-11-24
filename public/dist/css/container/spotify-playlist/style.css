@@ -42,6 +42,11 @@
   display: grid;
   gap: 28px;
 }
+.track__list-big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
 .track__content {
   display: flex;
   flex-direction: column;
@@ -82,13 +87,17 @@
   color: #BDBDBD;
 }
 
-.add-button {
-  display: grid;
-  grid-template-columns: 92px 1fr;
-  align-items: center;
-  gap: 20px;
-  color: #ddd;
-  font-size: 18px;
+.form__button {
+  color: #121212;
+  background-color: #20D562;
+  max-width: fit-content;
+  font-size: 20px;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: opacity 0.6s;
+}
+.form__button:hover {
+  opacity: 0.6;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -42,6 +42,11 @@
   display: grid;
   gap: 28px;
 }
+.track__list-big {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
 .track__content {
   display: flex;
   flex-direction: column;
@@ -82,6 +87,21 @@
   color: #BDBDBD;
 }
 
+.ind__header {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+}
+.ind__header__button {
+  margin: 200px;
+}
+
+.ind--button {
+  align-items: right;
+  gap: 12px;
+  color: #ddd;
+  font-size: 18px;
+}
+
 .add-button {
   display: grid;
   grid-template-columns: 92px 1fr;
@@ -91,8 +111,19 @@
   font-size: 18px;
 }
 
-.track--gray {
-  background-color: gray;
+.text {
+  size: 16px;
+  color: #BDBDBD;
+  text-decoration: none;
+}
+
+.ind--a {
+  text-decoration: none;
+}
+
+.ind__image {
+  width: 250px;
+  height: 250px;
 }
 
 /*# sourceMappingURL=style.css.map */

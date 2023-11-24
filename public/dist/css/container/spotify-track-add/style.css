@@ -87,4 +87,18 @@
   color: #BDBDBD;
 }
 
-/*# sourceMappingURL=spotify.css.map */
+.add-button {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: center;
+  gap: 20px;
+  color: #ddd;
+  font-size: 18px;
+}
+
+.track--border {
+  background-color: rgb(53, 53, 53);
+  padding: 16px;
+}
+
+/*# sourceMappingURL=style.css.map */

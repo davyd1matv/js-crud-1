@@ -2,11 +2,17 @@
 
 @use '../../lib/spotify.scss' as spotify;
 
-.add-button {
-	display: grid;
-	grid-template-columns: 92px 1fr;
-	align-items: center;
-	gap: s.space(5);
-	color: s.color(light);
-	font-size: 18px;
+.form__button {
+	color: s.color(dark);
+	background-color: #20D562;
+	max-width: fit-content;
+	font-size: 20px;
+	padding: s.space(3) s.space(10);
+	border-radius: 50px;
+
+	transition: opacity 0.6s;
+
+	&:hover {
+		opacity: 0.6;
+	}
 }

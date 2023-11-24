@@ -1,0 +1,44 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.ind__header {
+	display: grid;
+	grid-template-columns: 1fr 100px;
+
+	&__button {
+		// align-items: right;
+		margin: 200px;
+	}
+}
+
+.ind--button {
+	align-items: right;
+	gap: s.space(3);
+	color: s.color(light);
+	font-size: 18px;
+}
+
+.add-button {
+	display: grid;
+	grid-template-columns: 92px 1fr;
+	align-items: center;
+	gap: s.space(5);
+	color: s.color(light);
+	font-size: 18px;
+}
+
+.text {
+	size: 16px;
+	color: s.color(grey);
+	text-decoration: none;
+}
+
+.ind--a {
+	text-decoration: none;
+}
+
+.ind__image {
+	width: 250px;
+	height: 250px;
+}

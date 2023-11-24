@@ -49,6 +49,12 @@
 		gap: s.space(7)
 	}
 
+	&__list-big {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: s.space(3);
+	}
+
 	&__content {
 		display: flex;
 		flex-direction: column;
