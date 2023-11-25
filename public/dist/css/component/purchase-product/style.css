@@ -20,13 +20,14 @@
 
 .product-card__subtitle {
   font-size: 16px;
-  color: rgb(156, 155, 155);
+  color: #BDBDBD;
 }
 
 .product-card__category {
   padding: 4px 12px;
   border-radius: 30px;
   font-size: 14px;
+  color: #121212;
   border: 1px solid transparent;
 }
 
@@ -41,7 +42,7 @@
 }
 
 .product-card__button {
-  background-color: rgb(0, 0, 230);
+  background-color: blue;
   color: white;
   border: none;
   border-radius: 5px;
